@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: rgba(20, 18, 37, 0.877);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,4 +35,19 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.pago{
+  transition-duration: 0.8s;
+  transition-property: transform;
+}
+.pago:hover {
+  transform: rotate(360deg);
+}
+.pago-reverse{
+  transition-duration: 0.8s;
+  transition-property: transform;
+}
+.pago-reverse:hover {
+  transform: rotate(-360deg);
 }
