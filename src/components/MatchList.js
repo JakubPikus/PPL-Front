@@ -16,16 +16,29 @@ export default class MatchList extends React.Component {
   }
 
   componentDidMount() {
-    //axios.get(`http://127.0.0.1:8000/`)
-    axios.get(`https://pplelo.pythonanywhere.com/`)
-      .then(res => {
-        const matches = Object.values(res.data)
-        console.log(matches)
-        
-
-        this.setState({ matches });
-      })
+    this.getMatches();
+    this.interval = setInterval(this.getMatches, 1000)
+    
+    
   }
+
+  getMatches = () => {
+    //axios.get(`http://127.0.0.1:8000/`)
+    
+
+    axios.get(`https://pplelo.pythonanywhere.com/`)
+    .then(res => {
+      const matches = Object.values(res.data)
+      console.log(matches)
+      
+
+      this.setState({ matches });
+    })
+
+
+  }
+
+ 
 
 
   render() {
