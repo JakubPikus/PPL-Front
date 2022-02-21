@@ -17,7 +17,7 @@ export default class MatchList extends React.Component {
 
   componentDidMount() {
     this.getMatches();
-    this.interval = setInterval(this.getMatches, 60000)
+    //this.interval = setInterval(this.getMatches, 60000)
     
     
   }
