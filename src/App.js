@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import pago from './images/pago.png';
 import pagoreverse from './images/pago-reverse.png';
 import MatchList from './components/MatchList.js';
-import ClipLoader from "react-spinners/ClipLoader";
+
 
 function App() {
   return (
@@ -14,55 +14,27 @@ function App() {
       <Container>
           <Navbar variant="dark" bg="dark" className="navbar-back"  fixed="top" >
           
-            
                 <Col>
                   <img src={pago} style={{ width: "20%" }} className="pago"></img>
-                  
-                    
-                  
                 </Col>
+
                 <Col xs={5}>
                   <Navbar.Brand>
-                    <a>PPL Dywizja I - ELO Checker</a>
+                    <a>PPL Dywizja I - ELO Checker v2.0 (+ Livescore)</a>
                     <br>
                     </br>
                     <a>by MBBN-BADBOYS</a>
-                    
                   </Navbar.Brand>
                 </Col>
 
                 <Col>
                   <img src={pagoreverse} style={{ width: "20%" }} className="pago-reverse"></img>
-                
-                      
                 </Col>
           </Navbar>
 
           <Container>
-
-            <ClipLoader color="#00BFFF" size={100} />
-            
-              
-              
-            
-              
-            
-          
-
             <MatchList></MatchList>
-          
           </Container>
-
-
-
-
-
-          
-            
-
-          
-
-
 
         </Container>
       </header>
