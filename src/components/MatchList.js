@@ -150,11 +150,11 @@ export default class MatchList extends React.Component {
         });
 
       }
-      else {
+      //else {
        //console.log(this.state.playersElo)
        //console.log("CATCH - te same mecze")
 
-      }
+      //}
 
       //Zapisanie do state zapętlonych nowych wyników meczów
 
