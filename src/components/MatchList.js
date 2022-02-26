@@ -539,13 +539,19 @@ export default class MatchList extends React.Component {
 
 
     return <div>
-      <div style={{marginTop: -10}}> 
-        {!(isNaN(avarageElo)) && <a style={{ fontSize: "13px"}}>Średnie ELO - {avarageElo}</a>}
+
+    {!(isNaN(avarageElo)) && <div><div style={{marginTop: -10}}> 
+        <a style={{ fontSize: "13px"}}>Średnie ELO - {avarageElo}</a>
       </div>
       <br></br>
       <div style={{marginTop: -50}}>
         {this.getMathEloWinLose(avarageElo, avarageEloOppTeam)}
       </div>
+      </div>}
+
+      {isNaN(avarageElo) && <ClipLoader color="#00BFFF" size={63} />}
+
+
     </div>
 
   }
@@ -559,13 +565,19 @@ export default class MatchList extends React.Component {
 
 
     return <div>
-      <div style={{marginTop: -10}}>  
-        {!(isNaN(avarageElo)) && <a style={{ fontSize: "13px"}}>Średnie ELO - {avarageElo}</a>}
+
+    {!(isNaN(avarageElo)) && <div><div style={{marginTop: -10}}> 
+        <a style={{ fontSize: "13px"}}>Średnie ELO - {avarageElo}</a>
       </div>
       <br></br>
-      <div style={{marginTop: -50}}> 
+      <div style={{marginTop: -50}}>
         {this.getMathEloWinLose(avarageElo, avarageEloOppTeam)}
       </div>
+      </div>}
+
+      {isNaN(avarageElo) && <ClipLoader color="#00BFFF" size={63} />}
+
+
     </div>
   }
 
@@ -581,14 +593,78 @@ export default class MatchList extends React.Component {
 
         <br></br>
 
-        <div >
-            <h5>{props.voting.location.pick ? props.voting.location.pick : ""}</h5>
+        <div style={{marginTop: "-20px"}}>
+          {props.voting.location.pick == "Germany" && <div>
+          <img src={props.voting.location.entities[0].image_sm} style={{ width: "50%" }}></img>
+          </div>}
+
+          {props.voting.location.pick == "France" && <div>
+          <img src={props.voting.location.entities[1].image_sm} style={{ width: "50%" }}></img>
+          </div>}
+          
+          {props.voting.location.pick == "Netherlands" && <div>
+          <img src={props.voting.location.entities[2].image_sm} style={{ width: "50%" }}></img>
+          </div>}
         </div>
 
         <br></br>
 
-        <div>
-            <h5>{props.voting.map.pick ? props.voting.map.pick : ""}</h5>
+        <div >
+          {props.voting.map.pick == "de_cache" && <div>
+          <h5>{props.voting.map.pick}</h5>
+          <br></br>
+          <img src={props.voting.map.entities[0].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
+          </div>}
+
+          {props.voting.map.pick == "de_dust2" && <div>
+          <h5>{props.voting.map.pick}</h5>
+          <br></br>
+          <img src={props.voting.map.entities[1].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
+          </div>}
+
+          {props.voting.map.pick == "de_mirage" && <div>
+          <h5>{props.voting.map.pick}</h5>
+          <br></br>
+          <img src={props.voting.map.entities[2].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
+          </div>}
+
+          {props.voting.map.pick == "de_nuke" && <div>
+          <h5>{props.voting.map.pick}</h5>
+          <br></br>
+          <img src={props.voting.map.entities[3].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
+          </div>}
+
+          {props.voting.map.pick == "de_overpass" && <div>
+          <h5>{props.voting.map.pick}</h5>
+          <br></br>
+          <img src={props.voting.map.entities[4].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
+          </div>}
+
+          {props.voting.map.pick == "de_train" && <div>
+          <h5>{props.voting.map.pick}</h5>
+          <br></br>
+          <img src={props.voting.map.entities[5].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
+          </div>}
+
+          {props.voting.map.pick == "de_inferno" && <div>
+          <h5>{props.voting.map.pick}</h5>
+          <br></br>
+          <img src={props.voting.map.entities[6].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
+          </div>}
+
+          {props.voting.map.pick == "de_vertigo" && <div>
+          <h5>{props.voting.map.pick}</h5>
+          <br></br>
+          <img src={props.voting.map.entities[7].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
+          </div>}
+
+          {props.voting.map.pick == "de_ancient" && <div>
+          <h5>{props.voting.map.pick}</h5>
+          <br></br>
+          <img src={props.voting.map.entities[8].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
+          </div>}
+            
+
         </div>
 
       </div>;
@@ -603,14 +679,81 @@ export default class MatchList extends React.Component {
 
         <br></br>
 
-        <div >
-          <h5>{props.voting.location.pick}</h5>
+        <div style={{marginTop: "-20px"}}>
+          {props.voting.location.pick == "Germany" && <div>
+          <img src={props.voting.location.entities[0].image_sm} style={{ width: "50%" }}></img>
+          </div>}
+
+          {props.voting.location.pick == "France" && <div>
+          <img src={props.voting.location.entities[1].image_sm} style={{ width: "50%" }}></img>
+          </div>}
+
+          {props.voting.location.pick == "Netherlands" && <div>
+          <img src={props.voting.location.entities[2].image_sm} style={{ width: "50%" }}></img>
+          </div>}
         </div>
         
         <br></br>
 
         <div >
-            <h5>{props.voting.map.pick}</h5>
+          {props.voting.map.pick == "de_cache" && <div>
+          <h5>{props.voting.map.pick}</h5>
+          <br></br>
+          <img src={props.voting.map.entities[0].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
+          </div>}
+
+          {props.voting.map.pick == "de_dust2" && <div>
+          <h5>{props.voting.map.pick}</h5>
+          <br></br>
+          <img src={props.voting.map.entities[1].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
+          </div>}
+
+          {props.voting.map.pick == "de_mirage" && <div>
+          <h5>{props.voting.map.pick}</h5>
+          <br></br>
+          <img src={props.voting.map.entities[2].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
+          </div>}
+
+          {props.voting.map.pick == "de_nuke" && <div>
+          <h5>{props.voting.map.pick}</h5>
+          <br></br>
+          <img src={props.voting.map.entities[3].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
+          </div>}
+
+          {props.voting.map.pick == "de_overpass" && <div>
+          <h5>{props.voting.map.pick}</h5>
+          <br></br>
+          <img src={props.voting.map.entities[4].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
+          </div>}
+
+          {props.voting.map.pick == "de_train" && <div>
+          <h5>{props.voting.map.pick}</h5>
+          <br></br>
+          <img src={props.voting.map.entities[5].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
+          </div>}
+
+          {props.voting.map.pick == "de_inferno" && <div>
+          <h5>{props.voting.map.pick}</h5>
+          <br></br>
+          <img src={props.voting.map.entities[6].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
+          </div>}
+
+          {props.voting.map.pick == "de_vertigo" && <div>
+          <h5>{props.voting.map.pick}</h5>
+          <br></br>
+          <img src={props.voting.map.entities[7].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
+          </div>}
+
+          {props.voting.map.pick == "de_ancient" && <div>
+          <h5>{props.voting.map.pick}</h5>
+          <br></br>
+          <img src={props.voting.map.entities[8].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
+          </div>}
+            
+
+
+
+
         </div>
 
       </div>;
@@ -624,14 +767,78 @@ export default class MatchList extends React.Component {
 
         <br></br>
 
-        <div>
-            <h5>{props.voting.location.pick ? props.voting.location.pick : ""}</h5>
+        <div style={{marginTop: "-20px"}}>
+          {props.voting.location.pick == "Germany" && <div>
+          <img src={props.voting.location.entities[0].image_sm} style={{ width: "50%" }}></img>
+          </div>}
+
+          {props.voting.location.pick == "France" && <div>
+          <img src={props.voting.location.entities[1].image_sm} style={{ width: "50%" }}></img>
+          </div>}
+
+          {props.voting.location.pick == "Netherlands" && <div>
+          <img src={props.voting.location.entities[2].image_sm} style={{ width: "50%" }}></img>
+          </div>}
         </div>
 
         <br></br>
 
-        <div>
-            <h5>{props.voting.map.pick ? props.voting.map.pick : ""}</h5>
+        <div >
+          {props.voting.map.pick == "de_cache" && <div>
+          <h5>{props.voting.map.pick}</h5>
+          <br></br>
+          <img src={props.voting.map.entities[0].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
+          </div>}
+
+          {props.voting.map.pick == "de_dust2" && <div>
+          <h5>{props.voting.map.pick}</h5>
+          <br></br>
+          <img src={props.voting.map.entities[1].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
+          </div>}
+
+          {props.voting.map.pick == "de_mirage" && <div>
+          <h5>{props.voting.map.pick}</h5>
+          <br></br>
+          <img src={props.voting.map.entities[2].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
+          </div>}
+
+          {props.voting.map.pick == "de_nuke" && <div>
+          <h5>{props.voting.map.pick}</h5>
+          <br></br>
+          <img src={props.voting.map.entities[3].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
+          </div>}
+
+          {props.voting.map.pick == "de_overpass" && <div>
+          <h5>{props.voting.map.pick}</h5>
+          <br></br>
+          <img src={props.voting.map.entities[4].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
+          </div>}
+
+          {props.voting.map.pick == "de_train" && <div>
+          <h5>{props.voting.map.pick}</h5>
+          <br></br>
+          <img src={props.voting.map.entities[5].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
+          </div>}
+
+          {props.voting.map.pick == "de_inferno" && <div>
+          <h5>{props.voting.map.pick}</h5>
+          <br></br>
+          <img src={props.voting.map.entities[6].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
+          </div>}
+
+          {props.voting.map.pick == "de_vertigo" && <div>
+          <h5>{props.voting.map.pick}</h5>
+          <br></br>
+          <img src={props.voting.map.entities[7].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
+          </div>}
+
+          {props.voting.map.pick == "de_ancient" && <div>
+          <h5>{props.voting.map.pick}</h5>
+          <br></br>
+          <img src={props.voting.map.entities[8].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
+          </div>}
+            
+
         </div>
 
       </div>;
