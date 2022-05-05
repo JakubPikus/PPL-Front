@@ -675,7 +675,7 @@ export default class MatchList extends React.Component {
     const { isLoaded, matches } = this.state;
 
     if (!isLoaded) {
-      return <div><ClipLoader color="#00BFFF" size={100} /></div>;
+      return <div style={{marginTop: "400px"}}><ClipLoader color="#00BFFF" size={100} /></div>;
     } 
 
     else {
