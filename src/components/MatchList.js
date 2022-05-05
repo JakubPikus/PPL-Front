@@ -177,144 +177,77 @@ export default class MatchList extends React.Component {
 
     let differenceElo = props1 - props2
 
+    
 
     if(differenceElo < 0){
 
       if(differenceElo > -20){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>+25</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>-25</a>
-        </div>
+        return ["+25","-25"]
       }
 
       else if(differenceElo <= -20 && differenceElo>= -40){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>+26</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>-24</a>
-        </div>
+        return ["+26","-24"]
       }
 
       else if(differenceElo < -40 && differenceElo >= -50){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>+27</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>-23</a>
-        </div>
+        return ["+27","-23"]
       }
 
       else if(differenceElo < -50 && differenceElo >= -60){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>+28</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>-22</a>
-        </div>
+        return ["+28","-22"]
       }
 
       else if(differenceElo < -60 && differenceElo >= -70){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>+29</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>-21</a>
-        </div>
+        return ["+29","-21"]
       }
 
       else if(differenceElo < -70 && differenceElo >= -80){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>+30</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>-20</a>
-        </div>
+        return ["+30","-20"]
       }
 
       else if(differenceElo < -80 && differenceElo >= -90){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>+31</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>-19</a>
-        </div>
+        return ["+31","-19"]
       }
 
       else if(differenceElo < -90 && differenceElo >= -100){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>+32</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>-18</a>
-        </div>
+        return ["+32","-18"]
       }
 
       else if(differenceElo < -100 && differenceElo >= -115){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>+33</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>-17</a>
-        </div>
+        return ["+33","-17"]
       }
 
       else if(differenceElo < -115 && differenceElo >= -130){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>+34</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>-16</a>
-        </div>
+        return ["+34","-16"]
       }
 
       else if(differenceElo < -130 && differenceElo >= -145){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>+35</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>-15</a>
-        </div>
+        return ["+35","-15"]
       }
 
       else if(differenceElo < -145 && differenceElo >= -160){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>+36</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>-14</a>
-        </div>
+        return ["+36","-14"]
       }
 
       else if(differenceElo < -160 && differenceElo >= -175){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>+37</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>-13</a>
-        </div>
+        return ["+37","-13"]
       }
 
       else if(differenceElo < -175 && differenceElo >= -190){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>+38</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>-12</a>
-        </div>
+        return ["+38","-12"]
       }
 
       else if(differenceElo < -190 && differenceElo >= -230){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>+39</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>-11</a>
-        </div>
+        return ["+39","-11"]
       }
 
 
       else if(differenceElo < -230 && differenceElo >= -260){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>+40</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>-10</a>
-        </div>
+        return ["+40","-10"]
       }
 
       else if(differenceElo < -260){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>wiecej niż +40</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>wiecej niż -10</a>
-        </div>
+        return ["wiecej niż +40","wiecej niż -10"]
       }
       
     }
@@ -322,157 +255,79 @@ export default class MatchList extends React.Component {
 
 
       if(differenceElo < 20){
-      return <div>
-        <a style={{ fontSize: "13px", color: "green"}}>+25</a>
-        <a style={{ fontSize: "13px"}}> / </a>
-        <a style={{ fontSize: "13px", color: "red"}}>-25</a>
-      </div>
+        return ["+25","-25"]
       }
 
       else if(differenceElo >= 20 && differenceElo<=40){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>+24</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>-26</a>
-        </div>
+        return ["+24","-26"]
       }
 
       else if(differenceElo > 40 && differenceElo<=50){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>+23</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>-27</a>
-        </div>
+        return ["+23","-27"]
       }
 
       else if(differenceElo > 50 && differenceElo<=60){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>+22</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>-28</a>
-        </div>
+        return ["+22","-28"]
       }
 
       else if(differenceElo > 60 && differenceElo<=70){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>+21</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>-29</a>
-        </div>
+        return ["+21","-29"]
       }
 
       else if(differenceElo > 70 && differenceElo<=80){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>+20</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>-30</a>
-        </div>
+        return ["+20","-30"]
       }
 
       else if(differenceElo > 80 && differenceElo<=90){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>+19</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>-31</a>
-        </div>
+        return ["+19","-31"]
       }
 
       else if(differenceElo > 90 && differenceElo<=100){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>+18</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>-32</a>
-        </div>
+        return ["+18","-32"]
       }
 
       else if(differenceElo > 100 && differenceElo<=115){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>+17</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>-33</a>
-        </div>
+        return ["+17","-33"]
       }
 
       else if(differenceElo > 115 && differenceElo<=130){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>+16</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>-34</a>
-        </div>
+        return ["+16","-34"]
       }
 
       else if(differenceElo > 130 && differenceElo<=145){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>+15</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>-35</a>
-        </div>
+        return ["+15","-35"]
       }
 
       else if(differenceElo > 145 && differenceElo<=160){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>+14</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>-36</a>
-        </div>
+        return ["+14","-36"]
       }
 
 
       else if(differenceElo > 160 && differenceElo<=175){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>+13</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>-37</a>
-        </div>
+        return ["+13","-37"]
       }
 
       else if(differenceElo > 175 && differenceElo<=190){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>+12</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>-38</a>
-        </div>
+        return ["+12","-38"]
       }
 
       else if(differenceElo > 190 && differenceElo<=230){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>+11</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>-39</a>
-        </div>
+        return ["+11","-39"]
       }
 
       else if(differenceElo > 230 && differenceElo<=260){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>+10</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>-40</a>
-        </div>
+        return ["+10","-40"]
       }
 
       else if(differenceElo > 260){
-        return <div>
-          <a style={{ fontSize: "13px", color: "green"}}>mniej niż +10</a>
-          <a style={{ fontSize: "13px"}}> / </a>
-          <a style={{ fontSize: "13px", color: "red"}}>mniej niż -40</a>
-        </div>
+        return ["mniej niż +10","mniej niż -40"]
       }
 
-
-
-
-      
     }
     else if(differenceElo == 0){
-      return <div>
-        <a style={{ fontSize: "13px", color: "green"}}>+25</a>
-        <a style={{ fontSize: "13px"}}> / </a>
-        <a style={{ fontSize: "13px", color: "red"}}>-25</a>
-      </div>
+      return ["+25","-25"]
 
     }
-
-
   }
 
 
@@ -537,15 +392,20 @@ export default class MatchList extends React.Component {
     const avarageElo = data[0]
     const avarageEloOppTeam = data[1]
 
-
     return <div>
 
     {!(isNaN(avarageElo)) && <div><div style={{marginTop: -10}}> 
         <a style={{ fontSize: "13px"}}>Średnie ELO - {avarageElo}</a>
       </div>
       <br></br>
-      <div style={{marginTop: -50}}>
-        {this.getMathEloWinLose(avarageElo, avarageEloOppTeam)}
+      <div style={{marginTop: -40, fontSize: "13px"}}>
+        
+          <a style={{ color: "green"}}>{this.getMathEloWinLose(avarageElo, avarageEloOppTeam)[0]}</a>
+          <a> / </a>
+          <a style={{ color: "red"}}>{this.getMathEloWinLose(avarageElo, avarageEloOppTeam)[1]}</a>
+        
+
+
       </div>
       </div>}
 
@@ -570,8 +430,10 @@ export default class MatchList extends React.Component {
         <a style={{ fontSize: "13px"}}>Średnie ELO - {avarageElo}</a>
       </div>
       <br></br>
-      <div style={{marginTop: -50}}>
-        {this.getMathEloWinLose(avarageElo, avarageEloOppTeam)}
+      <div style={{marginTop: -40, fontSize: "13px"}}>
+          <a style={{ color: "green"}}>{this.getMathEloWinLose(avarageElo, avarageEloOppTeam)[0]}</a>
+          <a> / </a>
+          <a style={{ color: "red"}}>{this.getMathEloWinLose(avarageElo, avarageEloOppTeam)[1]}</a>
       </div>
       </div>}
 
@@ -584,6 +446,24 @@ export default class MatchList extends React.Component {
 
 
   matchInfo = (props) => {
+    let localization = {
+      "Germany": 0,
+      "France": 1,
+      "Poland": 2
+    }
+
+    let map = {
+      "de_cache": 0,
+      "de_dust2": 1,
+      "de_mirage": 2,
+      "de_nuke": 3,
+      "de_overpass": 4,
+      "de_train": 5,
+      "de_inferno": 6,
+      "de_vertigo": 7,
+      "de_ancient": 8
+    }
+
     if (props.status === "READY") {
       return <div>
 
@@ -594,77 +474,15 @@ export default class MatchList extends React.Component {
         <br></br>
 
         <div style={{marginTop: "-20px"}}>
-          {props.voting.location.pick == "Germany" && <div>
-          <img src={props.voting.location.entities[0].image_sm} style={{ width: "50%" }}></img>
-          </div>}
-
-          {props.voting.location.pick == "France" && <div>
-          <img src={props.voting.location.entities[1].image_sm} style={{ width: "50%" }}></img>
-          </div>}
-          
-          {props.voting.location.pick == "Netherlands" && <div>
-          <img src={props.voting.location.entities[2].image_sm} style={{ width: "50%" }}></img>
-          </div>}
+          <img src={props.voting.location.entities[localization[props.voting.location.pick]].image_sm} style={{ width: "50%", borderStyle: "ridge" }}></img>
         </div>
 
         <br></br>
 
         <div >
-          {props.voting.map.pick == "de_cache" && <div>
           <h5>{props.voting.map.pick}</h5>
           <br></br>
-          <img src={props.voting.map.entities[0].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
-          </div>}
-
-          {props.voting.map.pick == "de_dust2" && <div>
-          <h5>{props.voting.map.pick}</h5>
-          <br></br>
-          <img src={props.voting.map.entities[1].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
-          </div>}
-
-          {props.voting.map.pick == "de_mirage" && <div>
-          <h5>{props.voting.map.pick}</h5>
-          <br></br>
-          <img src={props.voting.map.entities[2].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
-          </div>}
-
-          {props.voting.map.pick == "de_nuke" && <div>
-          <h5>{props.voting.map.pick}</h5>
-          <br></br>
-          <img src={props.voting.map.entities[3].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
-          </div>}
-
-          {props.voting.map.pick == "de_overpass" && <div>
-          <h5>{props.voting.map.pick}</h5>
-          <br></br>
-          <img src={props.voting.map.entities[4].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
-          </div>}
-
-          {props.voting.map.pick == "de_train" && <div>
-          <h5>{props.voting.map.pick}</h5>
-          <br></br>
-          <img src={props.voting.map.entities[5].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
-          </div>}
-
-          {props.voting.map.pick == "de_inferno" && <div>
-          <h5>{props.voting.map.pick}</h5>
-          <br></br>
-          <img src={props.voting.map.entities[6].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
-          </div>}
-
-          {props.voting.map.pick == "de_vertigo" && <div>
-          <h5>{props.voting.map.pick}</h5>
-          <br></br>
-          <img src={props.voting.map.entities[7].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
-          </div>}
-
-          {props.voting.map.pick == "de_ancient" && <div>
-          <h5>{props.voting.map.pick}</h5>
-          <br></br>
-          <img src={props.voting.map.entities[8].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
-          </div>}
-            
-
+          <img src={props.voting.map.entities[map[props.voting.map.pick]].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
         </div>
 
       </div>;
@@ -680,82 +498,18 @@ export default class MatchList extends React.Component {
         <br></br>
 
         <div style={{marginTop: "-20px"}}>
-          {props.voting.location.pick == "Germany" && <div>
-          <img src={props.voting.location.entities[0].image_sm} style={{ width: "50%" }}></img>
-          </div>}
-
-          {props.voting.location.pick == "France" && <div>
-          <img src={props.voting.location.entities[1].image_sm} style={{ width: "50%" }}></img>
-          </div>}
-
-          {props.voting.location.pick == "Netherlands" && <div>
-          <img src={props.voting.location.entities[2].image_sm} style={{ width: "50%" }}></img>
-          </div>}
+          <img src={props.voting.location.entities[localization[props.voting.location.pick]].image_sm} style={{ width: "50%", borderStyle: "ridge" }}></img>
         </div>
         
         <br></br>
 
         <div >
-          {props.voting.map.pick == "de_cache" && <div>
           <h5>{props.voting.map.pick}</h5>
           <br></br>
-          <img src={props.voting.map.entities[0].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
-          </div>}
-
-          {props.voting.map.pick == "de_dust2" && <div>
-          <h5>{props.voting.map.pick}</h5>
-          <br></br>
-          <img src={props.voting.map.entities[1].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
-          </div>}
-
-          {props.voting.map.pick == "de_mirage" && <div>
-          <h5>{props.voting.map.pick}</h5>
-          <br></br>
-          <img src={props.voting.map.entities[2].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
-          </div>}
-
-          {props.voting.map.pick == "de_nuke" && <div>
-          <h5>{props.voting.map.pick}</h5>
-          <br></br>
-          <img src={props.voting.map.entities[3].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
-          </div>}
-
-          {props.voting.map.pick == "de_overpass" && <div>
-          <h5>{props.voting.map.pick}</h5>
-          <br></br>
-          <img src={props.voting.map.entities[4].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
-          </div>}
-
-          {props.voting.map.pick == "de_train" && <div>
-          <h5>{props.voting.map.pick}</h5>
-          <br></br>
-          <img src={props.voting.map.entities[5].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
-          </div>}
-
-          {props.voting.map.pick == "de_inferno" && <div>
-          <h5>{props.voting.map.pick}</h5>
-          <br></br>
-          <img src={props.voting.map.entities[6].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
-          </div>}
-
-          {props.voting.map.pick == "de_vertigo" && <div>
-          <h5>{props.voting.map.pick}</h5>
-          <br></br>
-          <img src={props.voting.map.entities[7].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
-          </div>}
-
-          {props.voting.map.pick == "de_ancient" && <div>
-          <h5>{props.voting.map.pick}</h5>
-          <br></br>
-          <img src={props.voting.map.entities[8].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
-          </div>}
-            
-
-
-
-
+          <img src={props.voting.map.entities[map[props.voting.map.pick]].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
         </div>
 
+       
       </div>;
       }
       catch(TypeError){
@@ -768,77 +522,15 @@ export default class MatchList extends React.Component {
         <br></br>
 
         <div style={{marginTop: "-20px"}}>
-          {props.voting.location.pick == "Germany" && <div>
-          <img src={props.voting.location.entities[0].image_sm} style={{ width: "50%" }}></img>
-          </div>}
-
-          {props.voting.location.pick == "France" && <div>
-          <img src={props.voting.location.entities[1].image_sm} style={{ width: "50%" }}></img>
-          </div>}
-
-          {props.voting.location.pick == "Netherlands" && <div>
-          <img src={props.voting.location.entities[2].image_sm} style={{ width: "50%" }}></img>
-          </div>}
+          <img src={props.voting.location.entities[localization[props.voting.location.pick]].image_sm} style={{ width: "50%", borderStyle: "ridge" }}></img>
         </div>
 
         <br></br>
 
         <div >
-          {props.voting.map.pick == "de_cache" && <div>
           <h5>{props.voting.map.pick}</h5>
           <br></br>
-          <img src={props.voting.map.entities[0].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
-          </div>}
-
-          {props.voting.map.pick == "de_dust2" && <div>
-          <h5>{props.voting.map.pick}</h5>
-          <br></br>
-          <img src={props.voting.map.entities[1].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
-          </div>}
-
-          {props.voting.map.pick == "de_mirage" && <div>
-          <h5>{props.voting.map.pick}</h5>
-          <br></br>
-          <img src={props.voting.map.entities[2].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
-          </div>}
-
-          {props.voting.map.pick == "de_nuke" && <div>
-          <h5>{props.voting.map.pick}</h5>
-          <br></br>
-          <img src={props.voting.map.entities[3].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
-          </div>}
-
-          {props.voting.map.pick == "de_overpass" && <div>
-          <h5>{props.voting.map.pick}</h5>
-          <br></br>
-          <img src={props.voting.map.entities[4].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
-          </div>}
-
-          {props.voting.map.pick == "de_train" && <div>
-          <h5>{props.voting.map.pick}</h5>
-          <br></br>
-          <img src={props.voting.map.entities[5].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
-          </div>}
-
-          {props.voting.map.pick == "de_inferno" && <div>
-          <h5>{props.voting.map.pick}</h5>
-          <br></br>
-          <img src={props.voting.map.entities[6].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
-          </div>}
-
-          {props.voting.map.pick == "de_vertigo" && <div>
-          <h5>{props.voting.map.pick}</h5>
-          <br></br>
-          <img src={props.voting.map.entities[7].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
-          </div>}
-
-          {props.voting.map.pick == "de_ancient" && <div>
-          <h5>{props.voting.map.pick}</h5>
-          <br></br>
-          <img src={props.voting.map.entities[8].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
-          </div>}
-            
-
+          <img src={props.voting.map.entities[map[props.voting.map.pick]].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
         </div>
 
       </div>;
@@ -991,7 +683,7 @@ export default class MatchList extends React.Component {
 
         <div style={{marginTop: 200}}>
 
-          {matches.length == 0 && <h3 style={{marginTop: -200}}>Aktualnie brak meczów</h3>}
+          {matches.length == 0 && <h3 style={{marginTop: 300}}>Aktualnie brak meczów</h3>}
           <ul>
             {matches.map(matches =>
               <div>
