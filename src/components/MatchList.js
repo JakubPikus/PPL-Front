@@ -32,8 +32,7 @@ export default class MatchList extends React.Component {
 
     axios.get(`https://open.faceit.com/data/v4/hubs/18d8cc72-e76a-43f0-bbd3-ca7cf48a6115/matches?type=ongoing`, {
       headers: {
-        'Authorization': 'Bearer d0f23c73-6216-44c3-bab7-8f458184a942',
-        'Access-Control-Allow-Origin': 'http://localhost:3000'
+        'Authorization': 'Bearer d0f23c73-6216-44c3-bab7-8f458184a942'
 
       }
       })
