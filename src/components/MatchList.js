@@ -682,9 +682,9 @@ export default class MatchList extends React.Component {
     else {
       return (
 
-        <div style={{marginTop: 200}}>
+        <div style={{marginTop: -100}}>
 
-          {matches.length == 0 && <h3 style={{marginTop: 300}}>Aktualnie brak meczów</h3>}
+          {matches.length == 0 && <h3 style={{marginTop: 150}}>Aktualnie brak meczów</h3>}
           <ul>
             {matches.map(matches =>
               <div>

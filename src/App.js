@@ -73,7 +73,7 @@ export default class App extends React.Component {
     var camera = new THREE.PerspectiveCamera( 75, container.clientWidth/(container.clientHeight+200), 0.01, 100 );
     camera.position.set(-2,-1,-0.9);
 
-    var camera2 = new THREE.PerspectiveCamera( 75, container2.clientWidth/(container2.clientHeight+200), 0.01, 100 );
+    var camera2 = new THREE.PerspectiveCamera( 75, container2.clientWidth/(container2.clientHeight+100), 0.01, 100 );
     camera2.position.set(0,1,7);
 
 
@@ -84,7 +84,7 @@ export default class App extends React.Component {
     this.mount.appendChild( renderer.domElement );
 
     var renderer2 = new THREE.WebGLRenderer({antialias:true, alpha: true});
-    renderer2.setSize( container2.clientWidth, container2.clientHeight+200 );
+    renderer2.setSize( container2.clientWidth, container2.clientHeight+100 );
     this.mount2.appendChild( renderer2.domElement );
 
 
@@ -165,9 +165,10 @@ export default class App extends React.Component {
             
               <Row>
 
-                <Col lg={2} style={{marginTop: "-100px"}}>
-                  <div class="girl" ref={ref => (this.mount = ref)}  style={{height: "80vh"}}/>
-                        
+
+
+                <Col lg={2} >
+                  <div class="girl" ref={ref => (this.mount = ref)}  style={{height: "80vh",width:"16vw", position: "fixed", marginTop: "-400px"}}/>
                 </Col>
     
                 <Col lg={8}>
@@ -175,10 +176,7 @@ export default class App extends React.Component {
                 </Col>
     
                 <Col lg={2}>
-
-                  <div class="girl2" ref={ref => (this.mount2 = ref)}  style={{height: "80vh", marginBottom: "100px"}}/>
-                
-                
+                    <div class="girl2" ref={ref => (this.mount2 = ref)}  style={{height: "80vh", width:"16vw", position: "fixed", marginTop: "-200px"}}/>
                         
                 </Col>
 
