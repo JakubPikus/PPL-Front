@@ -91,7 +91,7 @@ export default class MatchList extends React.Component {
 
               //Dojście do konkretnego meczu z zapętlonej odpowiedzi axios, który pojawił się nowy
 
-              if(newMatches[i].match_id == newId[j]){
+              if(newMatches[i].match_id === newId[j]){
 
                 //console.log("ACC")
                 
@@ -168,8 +168,8 @@ export default class MatchList extends React.Component {
 
   getEloPlayer = (props) => {
 
-    if(this.state.playersElo.filter(el => el[1] == props).length !== 0){
-      const elo = this.state.playersElo.filter(el => el[1] == props)
+    if(this.state.playersElo.filter(el => el[1] === props).length !== 0){
+      const elo = this.state.playersElo.filter(el => el[1] === props)
       return elo[0][2] 
     }
   }
@@ -325,7 +325,7 @@ export default class MatchList extends React.Component {
       }
 
     }
-    else if(differenceElo == 0){
+    else if(differenceElo === 0){
       return ["+25","-25"]
 
     }
@@ -340,15 +340,15 @@ export default class MatchList extends React.Component {
 
     let avgEloTeamB = 0
 
-    let arrayMatch = this.state.playersElo.filter(el => el[0] == props.match_id)
+    let arrayMatch = this.state.playersElo.filter(el => el[0] === props.match_id)
 
     let arrayTeamA = arrayMatch.filter(function(el){
 
 
     for(let i = 0; i < 5; i++){
 
-      if(el[1] == props.teams.faction1.roster[i].nickname){
-        return el[1] == props.teams.faction1.roster[i].nickname
+      if(el[1] === props.teams.faction1.roster[i].nickname){
+        return el[1] === props.teams.faction1.roster[i].nickname
       }
     }
     })
@@ -358,8 +358,8 @@ export default class MatchList extends React.Component {
 
       for(let i = 0; i < 5; i++){
   
-        if(el[1] == props.teams.faction2.roster[i].nickname){
-          return el[1] == props.teams.faction2.roster[i].nickname
+        if(el[1] === props.teams.faction2.roster[i].nickname){
+          return el[1] === props.teams.faction2.roster[i].nickname
         }
       }
       })
@@ -682,9 +682,9 @@ export default class MatchList extends React.Component {
     else {
       return (
 
-        <div style={{marginTop: -100}}>
+        <div>
 
-          {matches.length == 0 && <h3 style={{marginTop: 150}}>Aktualnie brak meczów</h3>}
+          {matches.length === 0 && <h3>Aktualnie brak meczów</h3>}
           <ul>
             {matches.map(matches =>
               <div>

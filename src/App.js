@@ -1,7 +1,6 @@
-import React, { Component } from "react";
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
-import { Button, Navbar, Container, Col, Row } from 'react-bootstrap';
+import { Navbar, Container, Col, Row } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import pago from './images/pago.png';
 import pagoreverse from './images/pago-reverse.png';
@@ -161,14 +160,16 @@ export default class App extends React.Component {
                     <img src={pagoreverse} style={{ width: "20%" }} className="pago-reverse"></img>
                   </Col>
             </Navbar>
-
+              <Row style={{height: "137px"}}>
+                
+              </Row>
             
               <Row>
 
-
-
                 <Col lg={2} >
-                  <div class="girl" ref={ref => (this.mount = ref)}  style={{height: "80vh",width:"16vw", position: "fixed", marginTop: "-400px"}}/>
+                      <div class="girl" ref={ref => (this.mount = ref)}  style={{height: "80vh",width:"16vw", position: "fixed", top: "-15vh", left: "0"}}/>
+
+                    
                 </Col>
     
                 <Col lg={8}>
@@ -176,11 +177,15 @@ export default class App extends React.Component {
                 </Col>
     
                 <Col lg={2}>
-                    <div class="girl2" ref={ref => (this.mount2 = ref)}  style={{height: "80vh", width:"16vw", position: "fixed", marginTop: "-200px"}}/>
-                        
+                    <div class="girl2" ref={ref => (this.mount2 = ref)}  style={{height: "80vh", width:"16vw", position: "fixed", top: "50px", right: "0"}}/>
                 </Col>
 
               </Row>
+              
+                
+              
+
+              
             
 
           </Container>
