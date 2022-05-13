@@ -1,0 +1,22 @@
+.container_match_info{
+    display: flex;
+    height: 80%; 
+    flex-direction: column;
+    align-items: center; 
+    justify-content: space-around; 
+}
+
+.container_notready_match_info{
+    display: flex; 
+    height: 80%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.match_info{
+    color: inherit;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+}

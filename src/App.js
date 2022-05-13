@@ -161,26 +161,26 @@ export default class App extends React.Component {
                   </Col>
             </Navbar>
               <Row style={{height: "137px"}}>
-                
               </Row>
             
               <Row>
 
-                <Col lg={2} >
+                <Col className="d-none d-xl-block" xl={2} >
                       <div class="girl" ref={ref => (this.mount = ref)}  style={{height: "80vh",width:"16vw", position: "fixed", top: "-15vh", left: "0"}}/>
 
                     
                 </Col>
     
-                <Col lg={8}>
+                <Col xl={8}>
                   <MatchList></MatchList>
                 </Col>
     
-                <Col lg={2}>
-                    <div class="girl2" ref={ref => (this.mount2 = ref)}  style={{height: "80vh", width:"16vw", position: "fixed", top: "50px", right: "0"}}/>
+                <Col className="d-none d-xl-block" xl={2}>
+                    <div class="girl2" ref={ref => (this.mount2 = ref)}  style={{height: "80vh", width:"20%", position: "fixed", top: "50px", right: "0"}}/>
                 </Col>
 
               </Row>
+              
               
                 
               

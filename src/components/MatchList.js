@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Card, Button, Col, Container, Row } from 'react-bootstrap';
+import '../MatchList.css';
 import Lvl10 from '../images/faceit10.svg';
 import Lvl9 from '../images/faceit9.svg';
 import Lvl8 from '../images/faceit8.svg';
@@ -395,26 +396,22 @@ export default class MatchList extends React.Component {
 
     return <div>
 
-    {!(isNaN(avarageElo)) && <div><div style={{marginTop: -10}}> 
-        <a style={{ fontSize: "13px"}}>Średnie ELO - {avarageElo}</a>
-      </div>
-      <br></br>
-      <div style={{marginTop: -40, fontSize: "13px"}}>
-        
-          <a style={{ color: "green"}}>{this.getMathEloWinLose(avarageElo, avarageEloOppTeam)[0]}</a>
-          <a> / </a>
-          <a style={{ color: "red"}}>{this.getMathEloWinLose(avarageElo, avarageEloOppTeam)[1]}</a>
-        
+    {!(isNaN(avarageElo)) && 
+      <Container style={{ fontSize: "13px"}}>
+        <a>Średnie ELO - {avarageElo}</a>
+        <Row className="mt-1">
+          <Col>
+            <a style={{ color: "green"}}>{this.getMathEloWinLose(avarageElo, avarageEloOppTeam)[0]}</a>
+            <a> / </a>
+            <a style={{ color: "red"}}>{this.getMathEloWinLose(avarageElo, avarageEloOppTeam)[1]}</a>
+          </Col>
+        </Row>
+      </Container>}
 
-
-      </div>
-      </div>}
-
-      {isNaN(avarageElo) && <ClipLoader color="#00BFFF" size={63} />}
+    {isNaN(avarageElo) && <ClipLoader color="#00BFFF" size={63} />}
 
 
     </div>
-
   }
 
   getEloTeamB = (props) => {
@@ -427,16 +424,17 @@ export default class MatchList extends React.Component {
 
     return <div>
 
-    {!(isNaN(avarageElo)) && <div><div style={{marginTop: -10}}> 
-        <a style={{ fontSize: "13px"}}>Średnie ELO - {avarageElo}</a>
-      </div>
-      <br></br>
-      <div style={{marginTop: -40, fontSize: "13px"}}>
-          <a style={{ color: "green"}}>{this.getMathEloWinLose(avarageElo, avarageEloOppTeam)[0]}</a>
-          <a> / </a>
-          <a style={{ color: "red"}}>{this.getMathEloWinLose(avarageElo, avarageEloOppTeam)[1]}</a>
-      </div>
-      </div>}
+    {!(isNaN(avarageElo)) &&
+    <Container style={{ fontSize: "13px"}}>
+        <a>Średnie ELO - {avarageElo}</a>
+        <Row className="mt-1">
+          <Col>
+            <a style={{ color: "green"}}>{this.getMathEloWinLose(avarageElo, avarageEloOppTeam)[0]}</a>
+            <a> / </a>
+            <a style={{ color: "red"}}>{this.getMathEloWinLose(avarageElo, avarageEloOppTeam)[1]}</a>
+          </Col>
+        </Row>
+      </Container>}
 
       {isNaN(avarageElo) && <ClipLoader color="#00BFFF" size={63} />}
 
@@ -466,91 +464,55 @@ export default class MatchList extends React.Component {
     }
 
     if (props.status === "READY") {
-      return <div>
-
-        <div >
-          <h5>0 : 0</h5>
-        </div>
-
-        <br></br>
-
-        <div style={{marginTop: "-20px"}}>
-          <img src={props.voting.location.entities[localization[props.voting.location.pick]].image_sm} style={{ width: "50%", borderStyle: "ridge" }}></img>
-        </div>
-
-        <br></br>
-
-        <div >
-          <h5>{props.voting.map.pick}</h5>
-          <br></br>
-          <img src={props.voting.map.entities[map[props.voting.map.pick]].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
-        </div>
-
-      </div>;
+      return <Container className="mt-2 container_match_info">
+          <a className='match_info'>0 : 0</a>
+          <img src={props.voting.location.entities[localization[props.voting.location.pick]].image_sm} style={{ width: "80px", borderStyle: "ridge" }}></img>
+          <a className='match_info'>{props.voting.map.pick}</a>
+          <img src={props.voting.map.entities[map[props.voting.map.pick]].image_sm} style={{ width: "80px"}}></img>
+        </Container>;
     } 
     else if (props.status === "ONGOING") {
       try{
-      return <div>
-
-        <div >
-          <h5>{props.results.score.faction1 ? props.results.score.faction1 : "0" } : {props.results.score.faction2 ? props.results.score.faction2 : "0"}</h5>
-        </div>
-
-        <br></br>
-
-        <div style={{marginTop: "-20px"}}>
-          <img src={props.voting.location.entities[localization[props.voting.location.pick]].image_sm} style={{ width: "50%", borderStyle: "ridge" }}></img>
-        </div>
-        
-        <br></br>
-
-        <div >
-          <h5>{props.voting.map.pick}</h5>
-          <br></br>
-          <img src={props.voting.map.entities[map[props.voting.map.pick]].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
-        </div>
-
-       
-      </div>;
+      return <Container className="mt-2 container_match_info">
+        <a className='match_info'>{props.results.score.faction1 ? props.results.score.faction1 : "0" } : {props.results.score.faction2 ? props.results.score.faction2 : "0"}</a>
+        <img src={props.voting.location.entities[localization[props.voting.location.pick]].image_sm} style={{ width: "80px", borderStyle: "ridge" }}></img>
+        <a className='match_info'>{props.voting.map.pick}</a>
+        <img src={props.voting.map.entities[map[props.voting.map.pick]].image_sm} style={{ width: "80px"}}></img>
+      </Container>;
       }
       catch(TypeError){
-        return <div>
-
-        <div>
-          <h5>0 : 0</h5>
-        </div>
-
-        <br></br>
-
-        <div style={{marginTop: "-20px"}}>
-          <img src={props.voting.location.entities[localization[props.voting.location.pick]].image_sm} style={{ width: "50%", borderStyle: "ridge" }}></img>
-        </div>
-
-        <br></br>
-
-        <div >
-          <h5>{props.voting.map.pick}</h5>
-          <br></br>
-          <img src={props.voting.map.entities[map[props.voting.map.pick]].image_sm} style={{ width: "50%", marginTop: "-70px" }}></img>
-        </div>
-
-      </div>;
+        return <Container className="mt-2 container_match_info">
+            <a className='match_info'>0 : 0</a>
+            <img src={props.voting.location.entities[localization[props.voting.location.pick]].image_sm} style={{ width: "80px", borderStyle: "ridge" }}></img>
+            <a className='match_info'>{props.voting.map.pick}</a>
+            <img src={props.voting.map.entities[map[props.voting.map.pick]].image_sm} style={{ width: "80px"}}></img>
+          </Container>;
       }
     }
     else if (props.status === "CHECK_IN") {
-      return <h5>Akceptowanie nowego meczu</h5>;
+      return <Container className="mt-2 text-wrap" style={{display: "flex", height: "80%", flexDirection: "column", alignItems: "center", justifyContent: "center"}}>
+        <a className='match_info'>Akceptowanie nowego meczu</a>
+      </Container>;
     }
     else if (props.status === "VOTING") {
-      return <h5>Pickowanie mapy</h5>;
+      return <Container className="mt-2 container_notready_match_info text-wrap">
+          <a className='match_info' style={{wordWrap: 'normal'}}>Pickowanie mapy</a>
+        </Container>;
     }
     else if (props.status === "CAPTAIN_PICK") {
-      return <h5>Pickowanie drużyny</h5>;
+      return <Container className="mt-2 container_notready_match_info text-wrap">
+        <a className='match_info' style={{wordWrap: 'normal'}}>Pickowanie drużyny</a>
+      </Container>;
     }
     else if (props.status === "CONFIGURING") {
-      return  <h5>Konfigurowanie serwera</h5>;
+      return  <Container className="mt-2 container_notready_match_info text-wrap">
+        <a className='match_info' style={{wordWrap: 'normal'}}>Konfigurowanie serwera</a>
+      </Container>;
     }
     else if (props.status === "CANCELED") {
-      return  <h5>Anulowane</h5>;
+      return  <Container className="mt-2 container_notready_match_info text-wrap">
+          <a className='match_info' style={{wordWrap: 'normal'}}>Anulowane</a>
+        </Container>;
     }
     else {
       return <h5>Błąd, prosze o info o tym przypadku na pw faceit MBBN-BADBOYS</h5>;
@@ -576,10 +538,10 @@ export default class MatchList extends React.Component {
       return props.teams.faction1.roster.map(players =>{
         return <Row>
           <Col xs={2}><img src={players.avatar ? players.avatar : defaultUser} style={{ width: "45px", height: "45px" }}></img></Col>
-          <Col xs={4}><a style={{ fontSize: "18px"}}>{players.nickname}</a></Col>
+          <Col xs={4}><a style={{ fontSize: "17px"}}>{players.nickname}</a></Col>
           <Col xs={2}><img src={imgURL[players.game_skill_level]} style={{ width: "30px", height: "30px" }}></img></Col>
           <Col xs={1}><a href={"https://www.faceit.com/pl/players/" + players.nickname}><img src={faceitProfile} style={{ width: "20px", height: "20px" }}></img></a></Col>
-          <Col xs={3}><a style={{ fontSize: "18px"}}>{this.getEloPlayer(players.nickname)}</a></Col>
+          <Col xs={3}><a style={{ fontSize: "17px"}}>{this.getEloPlayer(players.nickname)}</a></Col>
         </Row>
       })
     }
@@ -601,12 +563,12 @@ export default class MatchList extends React.Component {
     else {
       return props.teams.faction2.roster.map(players =>{
         return <Row>
-          <Col xs={3}><a style={{ fontSize: "18px"}}>{this.getEloPlayer(players.nickname)}</a></Col>
+          <Col xs={3}><a style={{ fontSize: "17px"}}>{this.getEloPlayer(players.nickname)}</a></Col>
           <Col xs={1}><a href={"https://www.faceit.com/pl/players/" + players.nickname}><img src={faceitProfile} style={{ width: "20px", height: "20px" }}></img></a></Col>
           <Col xs={2}><img src={imgURL[players.game_skill_level]} style={{ width: "30px", height: "30px" }}></img></Col>
-          <Col xs={4}><a style={{ fontSize: "18px"}}>{players.nickname}</a></Col>
+          <Col xs={4}><a style={{ fontSize: "17px"}}>{players.nickname}</a></Col>
           <Col xs={2}><img src={players.avatar ? players.avatar : defaultUser} style={{ width: "45px", height: "45px" }}></img></Col>
-          </Row>
+        </Row>
       })
     }
   }
@@ -618,22 +580,14 @@ export default class MatchList extends React.Component {
     else if(props.status === "CAPTAIN_PICK"){
       return <div>
         <h1>{props.teams.faction1.name}</h1>
-        <div>
-          {this.rosterTeamA(props)}
-        </div>
+        {this.rosterTeamA(props)}
       </div>
     }
     else {
       return <div>
         <h1>{props.teams.faction1.name}</h1>
-
-        <div>
-            {this.getEloTeamA(props)}
-        </div>
-        
-        <div style={{marginTop: 10}}>
-          {this.rosterTeamA(props)}
-        </div>
+        {this.getEloTeamA(props)}
+        {this.rosterTeamA(props)}
       </div>
     }
     
@@ -646,87 +600,54 @@ export default class MatchList extends React.Component {
     else if(props.status === "CAPTAIN_PICK"){
       return <div>
       <h1>{props.teams.faction2.name}</h1>
-      <div>
-        {this.rosterTeamB(props)}
-      </div>
+      {this.rosterTeamB(props)}
     </div>
     }
     else {
       return <div>
         <h1>{props.teams.faction2.name}</h1>
-
-        <div>
-          {this.getEloTeamB(props)}
-        </div>
-        
-        <div style={{marginTop: 10}}>
-          {this.rosterTeamB(props)}
-        </div>
+        {this.getEloTeamB(props)}
+        {this.rosterTeamB(props)}
       </div>
     }
   }
-
-
-
-
-
 
   render() {
 
     const { isLoaded, matches } = this.state;
 
     if (!isLoaded) {
-      return <div style={{marginTop: "400px"}}><ClipLoader color="#00BFFF" size={100} /></div>;
+      return <ClipLoader color="#00BFFF" size={100} />
     } 
 
     else {
       return (
-
         <div>
-
           {matches.length === 0 && <h3>Aktualnie brak meczów</h3>}
           <ul>
-            {matches.map(matches =>
-              <div>
-                <li key={matches.id}>
-                  <Card className="text-center mt-5">
-                    <Card.Body>
-                      <Card.Text>
-                        <div style={{ color: 'black' }}>
-                          <Container>
-                            <Container>
-                                <Row>
+            {matches.map(match =>
+              <li key={match.id}>
+                <Card className="mt-5 text-nowrap">
+                  <Card.Body style={{padding: "0.5rem"}}>
+                      <Container fluid style={{ color: 'black' }}>
+                          <Row>
+                              <Col xs={5}>
+                              {this.teamA(match)}
+                              </Col>
 
-                                    <Col>
-                                    {this.teamA(matches)}
-                                    </Col>
+                              <Col xs={2}>
+                                  <Button variant="dark" href={match.faceit_url.replace('{lang}', 'pl')}>Room Faceit</Button>
+                                  {this.matchInfo(match)}
+                              </Col>
 
-
-
-                                    <Col xs={2} >
-                                        <Button variant="dark" href={matches.faceit_url.replace('{lang}', 'pl')}>Room Faceit</Button>
-                                        <br></br>
-                                        <div style={{marginTop: 50}}>
-                                          <div >
-                                            {this.matchInfo(matches)}
-                                          </div>
-                                        </div>
-                                    </Col>
-
-                                    
-                                    <Col>
-                                    {this.teamB(matches)}
-                                    </Col>
-
-                                </Row>
-                            </Container>
-                          </Container>
-                        </div>
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </li>
-              </div>
+                              <Col xs={5}>
+                              {this.teamB(match)}
+                              </Col>
+                          </Row>
+                      </Container>
+                  </Card.Body>
+                </Card>
+              </li>
             )}
           </ul>
         </div>
