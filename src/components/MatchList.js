@@ -397,13 +397,13 @@ export default class MatchList extends React.Component {
     return <div>
 
     {!(isNaN(avarageElo)) && 
-      <Container style={{ fontSize: "13px"}}>
-        <a>Średnie ELO - {avarageElo}</a>
-        <Row className="mt-1">
+      <Container className='container_match_elo elomatchteama'>
+        <a className='elo_match'>Średnie ELO - {avarageElo}</a>
+        <Row>
           <Col>
-            <a style={{ color: "green"}}>{this.getMathEloWinLose(avarageElo, avarageEloOppTeam)[0]}</a>
-            <a> / </a>
-            <a style={{ color: "red"}}>{this.getMathEloWinLose(avarageElo, avarageEloOppTeam)[1]}</a>
+            <a className='elo_match' style={{ color: "green"}}>{this.getMathEloWinLose(avarageElo, avarageEloOppTeam)[0]}</a>
+            <a className='elo_match'> / </a>
+            <a className='elo_match' style={{ color: "red"}}>{this.getMathEloWinLose(avarageElo, avarageEloOppTeam)[1]}</a>
           </Col>
         </Row>
       </Container>}
@@ -425,13 +425,13 @@ export default class MatchList extends React.Component {
     return <div>
 
     {!(isNaN(avarageElo)) &&
-    <Container style={{ fontSize: "13px"}}>
-        <a>Średnie ELO - {avarageElo}</a>
-        <Row className="mt-1">
+    <Container className='container_match_elo containermatchelob'>
+        <a className='elo_match'>Średnie ELO - {avarageElo}</a>
+        <Row>
           <Col>
-            <a style={{ color: "green"}}>{this.getMathEloWinLose(avarageElo, avarageEloOppTeam)[0]}</a>
-            <a> / </a>
-            <a style={{ color: "red"}}>{this.getMathEloWinLose(avarageElo, avarageEloOppTeam)[1]}</a>
+            <a className='elo_match' style={{ color: "green"}}>{this.getMathEloWinLose(avarageElo, avarageEloOppTeam)[0]}</a>
+            <a className='elo_match'> / </a>
+            <a className='elo_match' style={{ color: "red"}}>{this.getMathEloWinLose(avarageElo, avarageEloOppTeam)[1]}</a>
           </Col>
         </Row>
       </Container>}
@@ -452,66 +452,74 @@ export default class MatchList extends React.Component {
     }
 
     let map = {
-      "de_cache": 0,
-      "de_dust2": 1,
-      "de_mirage": 2,
-      "de_nuke": 3,
-      "de_overpass": 4,
-      "de_train": 5,
-      "de_inferno": 6,
-      "de_vertigo": 7,
-      "de_ancient": 8
+      "de_train": 0,
+      "de_inferno": 1,
+      "de_vertigo": 2,
+      "de_ancient": 3,
+      "de_dust2": 4,
+      "de_mirage": 5,
+      "de_nuke": 6,
+      "de_overpass": 7,
+      "de_cache": 8
     }
 
     if (props.status === "READY") {
       return <Container className="mt-2 container_match_info">
+          <Button size="sm" className='match_info_button text-nowrap' variant="dark" href={props.faceit_url.replace('{lang}', 'pl')}>Faceit Room</Button>
           <a className='match_info'>0 : 0</a>
-          <img src={props.voting.location.entities[localization[props.voting.location.pick]].image_sm} style={{ width: "80px", borderStyle: "ridge" }}></img>
-          <a className='match_info'>{props.voting.map.pick}</a>
-          <img src={props.voting.map.entities[map[props.voting.map.pick]].image_sm} style={{ width: "80px"}}></img>
+          <img src={props.voting.location.entities[localization[props.voting.location.pick]].image_sm} className='match_info_img' style={{borderStyle: "ridge" }}></img>
+          <a className='match_info matchinfomap'>{props.voting.map.pick}</a>
+          <img src={props.voting.map.entities[map[props.voting.map.pick]].image_sm} className='match_info_img'></img>
         </Container>;
     } 
     else if (props.status === "ONGOING") {
       try{
       return <Container className="mt-2 container_match_info">
+        <Button size="sm" className='match_info_button text-nowrap' variant="dark" href={props.faceit_url.replace('{lang}', 'pl')}>Faceit Room</Button>
         <a className='match_info'>{props.results.score.faction1 ? props.results.score.faction1 : "0" } : {props.results.score.faction2 ? props.results.score.faction2 : "0"}</a>
-        <img src={props.voting.location.entities[localization[props.voting.location.pick]].image_sm} style={{ width: "80px", borderStyle: "ridge" }}></img>
-        <a className='match_info'>{props.voting.map.pick}</a>
-        <img src={props.voting.map.entities[map[props.voting.map.pick]].image_sm} style={{ width: "80px"}}></img>
+        <img src={props.voting.location.entities[localization[props.voting.location.pick]].image_sm} className='match_info_img' style={{borderStyle: "ridge" }}></img>
+        <a className='match_info matchinfomap'>{props.voting.map.pick}</a>
+        <img src={props.voting.map.entities[map[props.voting.map.pick]].image_sm} className='match_info_img'></img>
       </Container>;
       }
       catch(TypeError){
         return <Container className="mt-2 container_match_info">
+            <Button size="sm" className='match_info_button text-nowrap' variant="dark" href={props.faceit_url.replace('{lang}', 'pl')}>Faceit Room</Button>
             <a className='match_info'>0 : 0</a>
-            <img src={props.voting.location.entities[localization[props.voting.location.pick]].image_sm} style={{ width: "80px", borderStyle: "ridge" }}></img>
-            <a className='match_info'>{props.voting.map.pick}</a>
-            <img src={props.voting.map.entities[map[props.voting.map.pick]].image_sm} style={{ width: "80px"}}></img>
+            <img src={props.voting.location.entities[localization[props.voting.location.pick]].image_sm} className='match_info_img' style={{ borderStyle: "ridge" }}></img>
+            <a className='match_info matchinfomap'>{props.voting.map.pick}</a>
+            <img src={props.voting.map.entities[map[props.voting.map.pick]].image_sm} className='match_info_img'></img>
           </Container>;
       }
     }
     else if (props.status === "CHECK_IN") {
-      return <Container className="mt-2 text-wrap" style={{display: "flex", height: "80%", flexDirection: "column", alignItems: "center", justifyContent: "center"}}>
-        <a className='match_info'>Akceptowanie nowego meczu</a>
+      return <Container className="mt-2 container_notready_match_info text-wrap">
+        <Button size="sm" className='match_info_button text-nowrap mt-1' variant="dark" href={props.faceit_url.replace('{lang}', 'pl')}>Faceit Room</Button>
+        <a className='match_info mt-3'>Akceptowanie nowego meczu</a>
       </Container>;
     }
     else if (props.status === "VOTING") {
       return <Container className="mt-2 container_notready_match_info text-wrap">
-          <a className='match_info' style={{wordWrap: 'normal'}}>Pickowanie mapy</a>
+          <Button size="sm" className='match_info_button text-nowrap mt-1' variant="dark" href={props.faceit_url.replace('{lang}', 'pl')}>Faceit Room</Button>
+          <a className='match_info mt-3' style={{wordWrap: 'normal'}}>Pickowanie mapy</a>
         </Container>;
     }
     else if (props.status === "CAPTAIN_PICK") {
       return <Container className="mt-2 container_notready_match_info text-wrap">
-        <a className='match_info' style={{wordWrap: 'normal'}}>Pickowanie drużyny</a>
+        <Button size="sm" className='match_info_button text-nowrap mt-1' variant="dark" href={props.faceit_url.replace('{lang}', 'pl')}>Faceit Room</Button>
+        <a className='match_info mt-3' style={{wordWrap: 'normal'}}>Pickowanie drużyny</a>
       </Container>;
     }
     else if (props.status === "CONFIGURING") {
       return  <Container className="mt-2 container_notready_match_info text-wrap">
-        <a className='match_info' style={{wordWrap: 'normal'}}>Konfigurowanie serwera</a>
+        <Button size="sm" className='match_info_button text-nowrap mt-1' variant="dark" href={props.faceit_url.replace('{lang}', 'pl')}>Faceit Room</Button>
+        <a className='match_info mt-3' style={{wordWrap: 'normal'}}>Konfigurowanie serwera</a>
       </Container>;
     }
     else if (props.status === "CANCELED") {
       return  <Container className="mt-2 container_notready_match_info text-wrap">
-          <a className='match_info' style={{wordWrap: 'normal'}}>Anulowane</a>
+          <Button size="sm" className='match_info_button text-nowrap mt-1' variant="dark" href={props.faceit_url.replace('{lang}', 'pl')}>Faceit Room</Button>
+          <a className='match_info mt-3' style={{wordWrap: 'normal'}}>Anulowane</a>
         </Container>;
     }
     else {
@@ -536,12 +544,12 @@ export default class MatchList extends React.Component {
     }
     else {
       return props.teams.faction1.roster.map(players =>{
-        return <Row>
-          <Col xs={2}><img src={players.avatar ? players.avatar : defaultUser} style={{ width: "45px", height: "45px" }}></img></Col>
-          <Col xs={4}><a style={{ fontSize: "17px"}}>{players.nickname}</a></Col>
-          <Col xs={2}><img src={imgURL[players.game_skill_level]} style={{ width: "30px", height: "30px" }}></img></Col>
-          <Col xs={1}><a href={"https://www.faceit.com/pl/players/" + players.nickname}><img src={faceitProfile} style={{ width: "20px", height: "20px" }}></img></a></Col>
-          <Col xs={3}><a style={{ fontSize: "17px"}}>{this.getEloPlayer(players.nickname)}</a></Col>
+        return <Row className="flex-nowrap">
+          <Col xs={2}><img src={players.avatar ? players.avatar : defaultUser} className='avatar_img_match'></img></Col>
+          <Col xs={4}><a className='font_match fontmatchplayer'>{players.nickname}</a></Col>
+          <Col xs={2}><img src={imgURL[players.game_skill_level]} className='lvl_img_match'></img></Col>
+          <Col xs={1}><a href={"https://www.faceit.com/pl/players/" + players.nickname}><img src={faceitProfile} className='faceit_profile_img_match'></img></a></Col>
+          <Col xs={3}><a className='font_match matcheloteama'>{this.getEloPlayer(players.nickname)}</a></Col>
         </Row>
       })
     }
@@ -562,12 +570,12 @@ export default class MatchList extends React.Component {
     }
     else {
       return props.teams.faction2.roster.map(players =>{
-        return <Row>
-          <Col xs={3}><a style={{ fontSize: "17px"}}>{this.getEloPlayer(players.nickname)}</a></Col>
-          <Col xs={1}><a href={"https://www.faceit.com/pl/players/" + players.nickname}><img src={faceitProfile} style={{ width: "20px", height: "20px" }}></img></a></Col>
-          <Col xs={2}><img src={imgURL[players.game_skill_level]} style={{ width: "30px", height: "30px" }}></img></Col>
-          <Col xs={4}><a style={{ fontSize: "17px"}}>{players.nickname}</a></Col>
-          <Col xs={2}><img src={players.avatar ? players.avatar : defaultUser} style={{ width: "45px", height: "45px" }}></img></Col>
+        return <Row className="flex-nowrap">
+          <Col xs={3}><a className='font_match'>{this.getEloPlayer(players.nickname)}</a></Col>
+          <Col xs={1}><a href={"https://www.faceit.com/pl/players/" + players.nickname}><img src={faceitProfile} className='faceit_profile_img_match'></img></a></Col>
+          <Col xs={2}><img src={imgURL[players.game_skill_level]} className='lvl_img_match'></img></Col>
+          <Col xs={4}><a className='font_match fontmatchplayer'>{players.nickname}</a></Col>
+          <Col xs={2}><img src={players.avatar ? players.avatar : defaultUser} className='avatar_img_match avatarimgmatchb'></img></Col>
         </Row>
       })
     }
@@ -579,13 +587,13 @@ export default class MatchList extends React.Component {
     }
     else if(props.status === "CAPTAIN_PICK"){
       return <div>
-        <h1>{props.teams.faction1.name}</h1>
+        <a className='team_name teamnamea'>{props.teams.faction1.name}</a>
         {this.rosterTeamA(props)}
       </div>
     }
     else {
       return <div>
-        <h1>{props.teams.faction1.name}</h1>
+        <a className='team_name teamnamea'>{props.teams.faction1.name}</a>
         {this.getEloTeamA(props)}
         {this.rosterTeamA(props)}
       </div>
@@ -599,13 +607,13 @@ export default class MatchList extends React.Component {
     }
     else if(props.status === "CAPTAIN_PICK"){
       return <div>
-      <h1>{props.teams.faction2.name}</h1>
+      <a className='team_name teamnameb'>{props.teams.faction2.name}</a>
       {this.rosterTeamB(props)}
     </div>
     }
     else {
       return <div>
-        <h1>{props.teams.faction2.name}</h1>
+        <a className='team_name teamnameb'>{props.teams.faction2.name}</a>
         {this.getEloTeamB(props)}
         {this.rosterTeamB(props)}
       </div>
@@ -628,7 +636,7 @@ export default class MatchList extends React.Component {
             {matches.map(match =>
               <li key={match.id}>
                 <Card className="mt-5 text-nowrap">
-                  <Card.Body style={{padding: "0.5rem"}}>
+                  <Card.Body className='card_body' style={{padding: "0.5rem"}}>
                       <Container fluid style={{ color: 'black' }}>
                           <Row>
                               <Col xs={5}>
@@ -636,7 +644,7 @@ export default class MatchList extends React.Component {
                               </Col>
 
                               <Col xs={2}>
-                                  <Button variant="dark" href={match.faceit_url.replace('{lang}', 'pl')}>Room Faceit</Button>
+                                  
                                   {this.matchInfo(match)}
                               </Col>
 

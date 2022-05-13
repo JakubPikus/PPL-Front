@@ -143,24 +143,22 @@ export default class App extends React.Component {
         <Container fluid>
             <Navbar variant="dark" bg="dark" className="navbar-back"  fixed="top" >
             
-                  <Col>
+                  <Col xs={3}>
                     <img src={pago} style={{ width: "20%" }} className="pago"></img>
                   </Col>
 
-                  <Col xs={5}>
-                    <Navbar.Brand>
-                      <a>PPL Dywizja I - ELO Checker v2.0 (+ Livescore)</a>
-                      <br>
-                      </br>
-                      <a>by MBBN-BADBOYS</a>
+                  <Col xs={6}>
+                    <Navbar.Brand className='container_navbar'>
+                      <a className="navbar_name">PPL Dywizja I - ELO Checker v2.0 (+ Livescore)</a>
+                      <a className="navbar_name">by MBBN-BADBOYS</a>
                     </Navbar.Brand>
                   </Col>
 
-                  <Col>
+                  <Col xs={3}>
                     <img src={pagoreverse} style={{ width: "20%" }} className="pago-reverse"></img>
                   </Col>
             </Navbar>
-              <Row style={{height: "137px"}}>
+              <Row className='empty_div'>
               </Row>
             
               <Row>

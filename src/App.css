@@ -52,6 +52,54 @@
   transform: rotate(-360deg);
 }
 
+.empty_div{
+  height: 137px;
+}
+
+.navbar_name{
+  text-decoration: none;
+  color: inherit;
+  font-size: 20px;
+}
+
+.navbar_name:hover{
+  color: inherit;
+}
+
+.container_navbar{
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  margin-left: 1rem;
+
+}
+
+
+@media only screen and (max-width: 1200px) {
+  .empty_div{
+    height: 100px;
+  }
+}
+
+
+@media only screen and (max-width: 810px) {
+  .navbar_name{
+    font-size: 13px;
+  }
+}
+
+
+
+
+
+@media only screen and (max-width: 520px) {
+  .navbar_name{
+    font-size: 10px;
+  }
+}
+
+
+
 
 
 
