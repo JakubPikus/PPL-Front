@@ -1,0 +1,67 @@
+.modal-80w {
+    min-width:90%;
+  }
+
+
+.recharts-wrapper{
+  position: relative;
+  z-index: 10;
+
+
+}
+
+.tooltip-col{
+
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+}
+
+
+
+
+
+.recharts-tooltip-wrapper{
+    background-color: white;
+    border: 3px solid rgba(0, 0, 0, 0.178);
+    position: relative;
+    z-index: 5;
+    width: 250px;
+}
+
+
+
+.win_lose_img{
+  width: 15px;
+  height: 15px;
+
+
+}
+
+
+
+
+
+.avatar_stats_img_match{
+  width: 60px;
+  height: 60px;
+}
+
+.lvl_stats_img_match{
+  width: 35px;
+  height: 35px;
+}
+
+.container_stats_players{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 15px;
+
+
+}
+

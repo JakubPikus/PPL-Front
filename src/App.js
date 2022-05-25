@@ -149,7 +149,7 @@ export default class App extends React.Component {
 
                   <Col xs={6}>
                     <Navbar.Brand className='container_navbar'>
-                      <a className="navbar_name">PPL Dywizja I - ELO Checker v2.0 (+ Livescore)</a>
+                      <a className="navbar_name">PPL Dywizja I - ELO Checker v3.0 (+ Statystyki)</a>
                       <a className="navbar_name">by MBBN-BADBOYS</a>
                     </Navbar.Brand>
                   </Col>
@@ -164,9 +164,7 @@ export default class App extends React.Component {
               <Row>
 
                 <Col className="d-none d-xl-block" xl={2} >
-                      <div class="girl" ref={ref => (this.mount = ref)}  style={{height: "80vh",width:"16vw", position: "fixed", top: "-15vh", left: "0"}}/>
-
-                    
+                      <div className="girl" ref={ref => (this.mount = ref)}  style={{height: "80vh",width:"16vw", position: "fixed", top: "-15vh", left: "0"}}/>
                 </Col>
     
                 <Col xl={8}>
@@ -174,18 +172,11 @@ export default class App extends React.Component {
                 </Col>
     
                 <Col className="d-none d-xl-block" xl={2}>
-                    <div class="girl2" ref={ref => (this.mount2 = ref)}  style={{height: "80vh", width:"20%", position: "fixed", top: "50px", right: "0"}}/>
+                    <div className="girl2" ref={ref => (this.mount2 = ref)}  style={{height: "80vh", width:"20%", position: "fixed", top: "50px", right: "0"}}/>
                 </Col>
 
               </Row>
               
-              
-                
-              
-
-              
-            
-
           </Container>
         </header>
       </div>

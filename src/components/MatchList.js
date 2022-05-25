@@ -11,6 +11,7 @@ import defaultUser from '../images/defaultuser.png';
 import faceitProfile from '../images/user.png';
 import ClipLoader from "react-spinners/ClipLoader";
 import _ from "lodash";
+import ButtonStatistic from './ButtonStatistic';
 
 
 export default class MatchList extends React.Component {
@@ -27,7 +28,9 @@ export default class MatchList extends React.Component {
 
   }
 
+
   getMatches = () => {
+
 
     //Zapętlone pobieranie wyników meczów
 
@@ -38,12 +41,19 @@ export default class MatchList extends React.Component {
       }
       })
     .then(res => {
-      const newMatches = res.data.items 
+      let newMatches = res.data.items
       let matches = this.state.matches
 
-      //Sprawdzenie między obecnym state a nowymi danami czy nie ma różnicy między id meczów do sprawdzenia czy dodać jakiś nowy mecz czy jakiś usunąć (wyjątek check_in ponieważ nie ma odpowiedzi do graczy w meczu)
+      newMatches = newMatches.filter(el => el.status !== "CHECK_IN")
+
       
-      if(JSON.stringify(newMatches.map(function(e) {if(e.status !== "CHECK_IN"){return e.match_id}})) !== JSON.stringify(matches.map(function(e) {if(e.status !== "CHECK_IN"){return e.match_id}}))) {
+
+      //Sprawdzenie między obecnym state a nowymi danami czy nie ma różnicy między id meczów do sprawdzenia czy dodać jakiś nowy mecz czy jakiś usunąć
+      
+      if(JSON.stringify(newMatches.map(e => e.match_id)) !== JSON.stringify(matches.map(e => e.match_id))) {
+
+        
+        
 
 
         //Jak IF -> true to znaczy że są różne mecze
@@ -94,14 +104,22 @@ export default class MatchList extends React.Component {
 
               if(newMatches[i].match_id === newId[j]){
 
+                
+
                 //console.log("ACC")
                 
                 //Dodanie wszystkich graczy nowego meczu do listy players w formacie [id,nick,elo]
 
-                for(var p = 0; p < 5 ; p++){
+                
 
-                  let playerTeamA = [newMatches[i].match_id ,newMatches[i].teams.faction1.roster[p].nickname]
-                  let playerTeamB = [newMatches[i].match_id ,newMatches[i].teams.faction2.roster[p].nickname]
+                for(var p = 0; p < 5 ; p++){
+                  let playerTeamA 
+                  let playerTeamB
+
+
+
+                  playerTeamA = [newMatches[i].match_id ,newMatches[i].teams.faction1.roster[p].nickname]
+                  playerTeamB = [newMatches[i].match_id ,newMatches[i].teams.faction2.roster[p].nickname]
 
                   //pobranie elo nowych zawodników
                   axios.get(`https://open.faceit.com/data/v4/players?nickname=` + newMatches[i].teams.faction1.roster[p].nickname, {
@@ -124,6 +142,7 @@ export default class MatchList extends React.Component {
 
                   players.push(playerTeamA)
                   players.push(playerTeamB)
+
                 }
                 
                 //console.log(players)
@@ -144,7 +163,9 @@ export default class MatchList extends React.Component {
           //odfiltrowanie tablicy players z elementów, które nie pojawiły się w nowej odpowiedzi od faceita
 
           players = players.filter(el => oldId.indexOf(el[0]) < 0)
-          //console.log(players) 
+
+
+
         }
         //Zapisanie danych do state
         this.setState({ 
@@ -160,11 +181,26 @@ export default class MatchList extends React.Component {
 
       //Zapisanie do state zapętlonych nowych wyników meczów
 
+
       this.setState({ 
         isLoaded: true,
         matches : newMatches
       });
     })
+  }
+
+
+  getIdPlayer = (player,registerArray,databaseArray) => {
+
+    registerArray = registerArray.filter(e => e.nickname == player)
+
+    if(registerArray.length == 1){
+      return registerArray[0].id
+    }
+    else{
+      databaseArray = databaseArray.filter(e => e.nickname == player)
+      return databaseArray[0].id
+    }
   }
 
   getEloPlayer = (props) => {
@@ -470,6 +506,7 @@ export default class MatchList extends React.Component {
           <img src={props.voting.location.entities[localization[props.voting.location.pick]].image_sm} className='match_info_img' style={{borderStyle: "ridge" }}></img>
           <a className='match_info matchinfomap'>{props.voting.map.pick}</a>
           <img src={props.voting.map.entities[map[props.voting.map.pick]].image_sm} className='match_info_img'></img>
+          <ButtonStatistic match={props}></ButtonStatistic>
         </Container>;
     } 
     else if (props.status === "ONGOING") {
@@ -480,6 +517,7 @@ export default class MatchList extends React.Component {
         <img src={props.voting.location.entities[localization[props.voting.location.pick]].image_sm} className='match_info_img' style={{borderStyle: "ridge" }}></img>
         <a className='match_info matchinfomap'>{props.voting.map.pick}</a>
         <img src={props.voting.map.entities[map[props.voting.map.pick]].image_sm} className='match_info_img'></img>
+        <ButtonStatistic match={props}></ButtonStatistic>
       </Container>;
       }
       catch(TypeError){
@@ -489,6 +527,7 @@ export default class MatchList extends React.Component {
             <img src={props.voting.location.entities[localization[props.voting.location.pick]].image_sm} className='match_info_img' style={{ borderStyle: "ridge" }}></img>
             <a className='match_info matchinfomap'>{props.voting.map.pick}</a>
             <img src={props.voting.map.entities[map[props.voting.map.pick]].image_sm} className='match_info_img'></img>
+            <ButtonStatistic match={props}></ButtonStatistic>
           </Container>;
       }
     }
@@ -496,30 +535,35 @@ export default class MatchList extends React.Component {
       return <Container className="mt-2 container_notready_match_info text-wrap">
         <Button size="sm" className='match_info_button text-nowrap mt-1' variant="dark" href={props.faceit_url.replace('{lang}', 'pl')}>Faceit Room</Button>
         <a className='match_info mt-3'>Akceptowanie nowego meczu</a>
+        <ButtonStatistic match={props}></ButtonStatistic>
       </Container>;
     }
     else if (props.status === "VOTING") {
       return <Container className="mt-2 container_notready_match_info text-wrap">
           <Button size="sm" className='match_info_button text-nowrap mt-1' variant="dark" href={props.faceit_url.replace('{lang}', 'pl')}>Faceit Room</Button>
           <a className='match_info mt-3' style={{wordWrap: 'normal'}}>Pickowanie mapy</a>
+          <ButtonStatistic match={props}></ButtonStatistic>
         </Container>;
     }
     else if (props.status === "CAPTAIN_PICK") {
       return <Container className="mt-2 container_notready_match_info text-wrap">
         <Button size="sm" className='match_info_button text-nowrap mt-1' variant="dark" href={props.faceit_url.replace('{lang}', 'pl')}>Faceit Room</Button>
         <a className='match_info mt-3' style={{wordWrap: 'normal'}}>Pickowanie drużyny</a>
+        <ButtonStatistic match={props}></ButtonStatistic>
       </Container>;
     }
     else if (props.status === "CONFIGURING") {
       return  <Container className="mt-2 container_notready_match_info text-wrap">
         <Button size="sm" className='match_info_button text-nowrap mt-1' variant="dark" href={props.faceit_url.replace('{lang}', 'pl')}>Faceit Room</Button>
         <a className='match_info mt-3' style={{wordWrap: 'normal'}}>Konfigurowanie serwera</a>
+        <ButtonStatistic match={props}></ButtonStatistic>
       </Container>;
     }
     else if (props.status === "CANCELED") {
       return  <Container className="mt-2 container_notready_match_info text-wrap">
           <Button size="sm" className='match_info_button text-nowrap mt-1' variant="dark" href={props.faceit_url.replace('{lang}', 'pl')}>Faceit Room</Button>
           <a className='match_info mt-3' style={{wordWrap: 'normal'}}>Anulowane</a>
+          <ButtonStatistic match={props}></ButtonStatistic>
         </Container>;
     }
     else {
@@ -624,6 +668,7 @@ export default class MatchList extends React.Component {
 
     const { isLoaded, matches } = this.state;
 
+
     if (!isLoaded) {
       return <ClipLoader color="#00BFFF" size={100} />
     } 
@@ -634,28 +679,27 @@ export default class MatchList extends React.Component {
           {matches.length === 0 && <h3>Aktualnie brak meczów</h3>}
           <ul>
             {matches.map(match =>
-              <li key={match.id}>
-                <Card className="mt-5 text-nowrap">
-                  <Card.Body className='card_body' style={{padding: "0.5rem"}}>
-                      <Container fluid style={{ color: 'black' }}>
-                          <Row>
-                              <Col xs={5}>
-                              {this.teamA(match)}
-                              </Col>
+                <li key={match.match_id}>
+                  <Card className="mt-5 text-nowrap">
+                    <Card.Body className='card_body' style={{padding: "0.5rem"}}>
+                        <Container fluid style={{ color: 'black' }}>
+                            <Row>
+                                <Col xs={5}>
+                                  {this.teamA(match)}
+                                </Col>
 
-                              <Col xs={2}>
-                                  
+                                <Col xs={2}>
                                   {this.matchInfo(match)}
-                              </Col>
+                                </Col>
 
-                              <Col xs={5}>
-                              {this.teamB(match)}
-                              </Col>
-                          </Row>
-                      </Container>
-                  </Card.Body>
-                </Card>
-              </li>
+                                <Col xs={5}>
+                                  {this.teamB(match)}
+                                </Col>
+                            </Row>
+                        </Container>
+                    </Card.Body>
+                  </Card>
+                </li>
             )}
           </ul>
         </div>
