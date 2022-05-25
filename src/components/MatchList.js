@@ -523,7 +523,6 @@ export default class MatchList extends React.Component {
       </Container>;
       }
       catch(TypeError){
-        console.log(TypeError)
         return <Container className="mt-2 container_match_info">
             <Button size="sm" className='match_info_button text-nowrap' variant="dark" href={props.faceit_url.replace('{lang}', 'pl')}>Faceit Room</Button>
             <a className='match_info'>0 : 0</a>
