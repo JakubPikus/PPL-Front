@@ -481,6 +481,8 @@ export default class MatchList extends React.Component {
 
 
   matchInfo = (props) => {
+    
+    
     let localization = {
       "Germany": 0,
       "France": 1,
@@ -492,18 +494,18 @@ export default class MatchList extends React.Component {
       "de_inferno": 1,
       "de_vertigo": 2,
       "de_ancient": 3,
-      "de_dust2": 4,
-      "de_mirage": 5,
-      "de_nuke": 6,
-      "de_overpass": 7,
-      "de_cache": 8
+      "de_cache": 4,
+      "de_dust2": 5,
+      "de_mirage": 6,
+      "de_nuke": 7,
+      "de_overpass": 8
     }
 
     if (props.status === "READY") {
       return <Container className="mt-2 container_match_info">
           <Button size="sm" className='match_info_button text-nowrap' variant="dark" href={props.faceit_url.replace('{lang}', 'pl')}>Faceit Room</Button>
           <a className='match_info'>0 : 0</a>
-          <img src={props.voting.location.entities[localization[props.voting.location.pick]].image_sm} className='match_info_img' style={{borderStyle: "ridge" }}></img>
+          <img src={props.voting.location.entities[localization[props.voting.location.pick[0]]].image_sm} className='match_info_img' style={{borderStyle: "ridge" }}></img>
           <a className='match_info matchinfomap'>{props.voting.map.pick}</a>
           <img src={props.voting.map.entities[map[props.voting.map.pick]].image_sm} className='match_info_img'></img>
           <ButtonStatistic match={props}></ButtonStatistic>
@@ -514,17 +516,18 @@ export default class MatchList extends React.Component {
       return <Container className="mt-2 container_match_info">
         <Button size="sm" className='match_info_button text-nowrap' variant="dark" href={props.faceit_url.replace('{lang}', 'pl')}>Faceit Room</Button>
         <a className='match_info'>{props.results.score.faction1 ? props.results.score.faction1 : "0" } : {props.results.score.faction2 ? props.results.score.faction2 : "0"}</a>
-        <img src={props.voting.location.entities[localization[props.voting.location.pick]].image_sm} className='match_info_img' style={{borderStyle: "ridge" }}></img>
+        <img src={props.voting.location.entities[localization[props.voting.location.pick[0]]].image_sm} className='match_info_img' style={{borderStyle: "ridge" }}></img>
         <a className='match_info matchinfomap'>{props.voting.map.pick}</a>
         <img src={props.voting.map.entities[map[props.voting.map.pick]].image_sm} className='match_info_img'></img>
         <ButtonStatistic match={props}></ButtonStatistic>
       </Container>;
       }
       catch(TypeError){
+        console.log(TypeError)
         return <Container className="mt-2 container_match_info">
             <Button size="sm" className='match_info_button text-nowrap' variant="dark" href={props.faceit_url.replace('{lang}', 'pl')}>Faceit Room</Button>
             <a className='match_info'>0 : 0</a>
-            <img src={props.voting.location.entities[localization[props.voting.location.pick]].image_sm} className='match_info_img' style={{ borderStyle: "ridge" }}></img>
+            <img src={props.voting.location.entities[localization[props.voting.location.pick[0]]].image_sm} className='match_info_img' style={{ borderStyle: "ridge" }}></img>
             <a className='match_info matchinfomap'>{props.voting.map.pick}</a>
             <img src={props.voting.map.entities[map[props.voting.map.pick]].image_sm} className='match_info_img'></img>
             <ButtonStatistic match={props}></ButtonStatistic>
